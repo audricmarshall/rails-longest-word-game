@@ -1,2 +1,21 @@
-<h1>Games#new</h1>
+<%# <h1>Games#new</h1>
 <p>Find me in app/views/games/new.html.erb</p>
+ %>
+
+<%#  ctrl shift : le code de base genéré par rails %>
+
+<div class="container mt-5">
+  <h1 class="mb-4">New game</h1>
+  <ul class="list-inline mb-4">
+    <% @letters.each do |letter| %>
+      <li class="list-inline-item display-4 border p-3 m-1 bg-light rounded text-primary"><%= letter %></li>
+    <% end %>
+  </ul>
+  <p>What is the longest word you can find ?</p>
+  <form action="/score" method="post" data-turbo="false" class="d-flex flex-column align-items-start">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters.join(' ') %>
+    <input type="text" name="word" class="form-control mb-2" placeholder="Your word" autocomplete="off">
+    <input type="submit" value="Play" class="btn btn-primary">
+  </form>
+</div>

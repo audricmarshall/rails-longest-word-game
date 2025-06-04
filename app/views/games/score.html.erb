@@ -1,2 +1,13 @@
-<h1>Games#score</h1>
+<%# <h1>Games#score</h1>
 <p>Find me in app/views/games/score.html.erb</p>
+ %>
+
+<%#  comme d'hab %>
+
+<div class="container mt-5">
+  <h1 class="mb-4">Result</h1>
+  <div class="alert <%= @result.include?('Congratulations') ? 'alert-success' : 'alert-danger' %>">
+    <%= @result.html_safe %>
+  </div>
+  <%= link_to "Play again", new_path, class: "btn btn-outline-primary" %>
+</div>
